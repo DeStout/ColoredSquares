@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nerdiful.wallpaper.coloredsquares"
+    android:versionCode="2"
+    android:versionName="1.01" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-feature android:name="android.software.live_wallpaper" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/coloredsquares_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        
+        <activity
+            android:name=".WallpaperSettings"
+            android:label="@string/lw3_settings"
+            android:theme="@android:style/Theme.WallpaperSettings"
+            android:exported="true">
+        </activity>
+        
+        <service
+            android:name="com.nerdiful.wallpaper.coloredsquares.LiveWallpaper3"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER" >
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper3" />
+        </service>
+    </application>
+
+</manifest>
